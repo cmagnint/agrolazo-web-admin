@@ -1,0 +1,29 @@
+services:
+  web-admin:
+    image: ${WEB_ADMIN_IMAGE}
+    container_name: ${WEB_ADMIN_CONTAINER}
+
+    ports:
+      - "${HTTP_HOST}:${HTTP_PORT}"
+
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      API_ORGANIZATION_URL: ${API_ORGANIZATION_URL}
+      API_FACTORY_URL: ${API_FACTORY_URL}
+      SESSION_COOKIE_NAME: ${SESSION_COOKIE_NAME}
+      SESSION_COOKIE_SECURE: ${SESSION_COOKIE_SECURE}
+      SESSION_MAX_AGE_SECONDS: ${SESSION_MAX_AGE_SECONDS}
+      HTTP_PORT: ${HTTP_PORT}
+      PORT: ${HTTP_PORT}
+      HOSTNAME: 0.0.0.0
+      NEXT_TELEMETRY_DISABLED: 1
+
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro
+
+    networks:
+      - agrolazo
+
+networks:
+  agrolazo:
+    external: true

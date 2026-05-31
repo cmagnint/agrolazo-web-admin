@@ -1,0 +1,17 @@
+node:
+  env: "${NODE_ENV}"
+
+api:
+  organization:
+    url: "${API_ORGANIZATION_URL}"
+  factory:
+    url: "${API_FACTORY_URL}"
+
+session:
+  cookie:
+    name: "${SESSION_COOKIE_NAME}"
+    secure: "${SESSION_COOKIE_SECURE}"
+    max_age_seconds: "${SESSION_MAX_AGE_SECONDS}"
+
+http:
+  port: "${HTTP_PORT}"
